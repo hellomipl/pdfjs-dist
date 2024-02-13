@@ -6576,11 +6576,18 @@ class PDFFindController {
     }
 
     this._scrollMatches = false;
-    const spot = {
+    let pageTopoffset = element.closest('.page').offsetTop;
+
+    let elementTopposition = parseInt(element.style.top)
+    let cntnr = element.closest('.ng2-pdf-viewer-container');
+
+    cntnr.scrollTo(0,pageTopoffset + elementTopposition - 200)
+
+   /* const spot = {
       top: MATCH_SCROLL_OFFSET_TOP,
       left: selectedLeft + MATCH_SCROLL_OFFSET_LEFT
     };
-    (0, _ui_utils.scrollIntoView)(element, spot, true);
+    (0, _ui_utils.scrollIntoView)(element, spot, true);*/
   }
 
   #reset() {
